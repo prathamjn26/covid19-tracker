@@ -1,9 +1,25 @@
 body{
-    background-color: azure;
+    background-color:azure;
 }
 
 .container{
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image{
+    margin-top: 50px;
+    width: 370px;
+}
+
+@media (max-width:720px)
+{
+    .container{
+        margin:0 10%;
+    }
+    .image{
+        width:100%;
+    }
 }
