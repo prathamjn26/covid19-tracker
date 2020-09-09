@@ -16,9 +16,9 @@ class Chart extends Component {
 
     render(props) 
     {
+
         const {data,country}=this.props;
         const {dailyData}=this.state;
-
         const barChart=(
             data.confirmed?
             <Bar
