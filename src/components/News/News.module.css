@@ -1,0 +1,40 @@
+.contain{
+    max-width: 345;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 10%;
+    margin-top: 100px;
+    flex-direction: column;
+}
+
+.image{
+    margin-bottom: 50px;
+    width: 370px;
+}
+
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+ }
+
+.page{
+    margin-top: 20px;
+}
+
+@media (max-width:720px)
+{
+    .container{
+        margin:0 10%;
+    }
+    .image{
+        width: 100%;
+        margin: 80px 0 40px 0;
+    }
+}

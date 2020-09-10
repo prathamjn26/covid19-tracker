@@ -1,40 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import HomeComp from './components/Covid/HomeComp';
+import News from './components/News/News';
+import Gallery from './components/Gallery/Gallery';
+import Menu from './components/Menu/Menu.jsx';
+import {BrowserRouter as Router,Route, Redirect,Switch} from 'react-router-dom';
 
-import {Cards,Chart,CountryPicker} from './components/index'
-import style from './App.module.css';
-import {fetchData} from './api';
-import CovidLogo from './images/image.png';
-
-class App extends React.Component{
-    state={
-        data:{},
-        country:""
-    }
-
-    async componentDidMount()
-    {
-        const fetchedData=await fetchData();
-        this.setState({ data:fetchedData })
-    }
-
-    handleCountryChange=async(country)=>{
-        this.setState({
-            data:await fetchData(country),
-            country:country
-        })
-    }
-
-    render()
-    {
-        const {data,country}=this.state;
-        return(
-            <div className={style.container}>
-                <img className={style.image} src={CovidLogo} alt="Covid-19"/>
-                <Cards data={data}/>
-                <CountryPicker handleCountryChange={this.handleCountryChange}/>
-                <Chart data={data} country={country}/>
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Router>
+                    <Menu/>
+                    <Switch>
+                    <Route exact path='/Home' component={HomeComp} />
+                    <Route exact path='/News' component={News}/>
+                    <Route exact path='/Gallery' component={Gallery}/>
+                    <Redirect to='/Home'/>
+                    </Switch>
+                </Router>
             </div>
-        )
+        );
     }
 }
 
