@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const url='https://covid19.mathdro.id/api';
 const newsurl='http://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4ac1d839a83d473687420da23a5dbb17';
+const imageurl='https://api.unsplash.com/search/photos?per_page=45&query=';
 
 export const fetchData =async (country)=>{
     let changeAbleUrl=url;
@@ -51,5 +52,26 @@ export const fetchNewsData =async ()=>{
     }catch(err)
     {
         console.log(err);
+    }
+}
+
+export const fetchImagesData =async (country='india')=>{
+    let changeAbleUrl=imageurl;
+    if(country.toLowerCase())
+    {
+        changeAbleUrl=`${imageurl}${country}&client_id=r2N4ELuiL1yHCFWc0FMjHEE2SyaADmJFlCsGYTiclHU`;
+    }
+    try{
+       const {data:{results}}=await axios.get(changeAbleUrl);
+       const modifiedImageData=results.map(item=>({
+           url:item.urls.regular,
+           alt:item.alt_description,
+           user:item.user.name,
+           link:item.links.html
+       }))
+       return modifiedImageData;
+    }catch(err)
+    {
+        console.log("hey");
     }
 }

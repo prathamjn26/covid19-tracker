@@ -11,16 +11,20 @@
     flex-direction: column;
 }
 
-.image{
+.paper{
     margin-bottom: 50px;
-    width: 370px;
+    background-color: #60fcff;
+    background-image: url("../../images/paper.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    padding:8px 10px;   
 }
 
 .text {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical;
  }
 
@@ -31,7 +35,7 @@
 @media (max-width:720px)
 {
     .container{
-        margin:0 10%;
+        margin:20% 10%;
     }
     .image{
         width: 100%;

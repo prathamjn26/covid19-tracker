@@ -25,7 +25,7 @@ class Chart extends Component {
             data={{
                 labels:['Infected','Recovered','Deaths'],
                 datasets:[{
-                    backgroundColor:['rgba(0,0,255,0.5)','rgba(0,255,0,0.5)','rgba(255,0,0,0.5)'],
+                    backgroundColor:['#149f84cc','#fd9f17cc','#ec293acc'],
                     label:'People',
                     data:[data.confirmed.value,data.recovered.value,data.deaths.value]
                 }]
@@ -46,13 +46,14 @@ class Chart extends Component {
             datasets:[{
                 data:dailyData.map(item=>(item.confirmed)),
                 label:'Infected',
-                borderColor:'#3333ff',
+                borderColor:'#00158a',
+                backgroundColor:'#00083594',
                 fil:true
             },{
                 data:dailyData.map(item=>(item.deaths)),
                 label:'Deaths',
-                borderColor:'red',
-                backgroundColor:'rgba(255,0,0,0.5)',
+                borderColor:'#ec293a',
+                backgroundColor:'rgba(236,41,58,0.95)',
                 fill:true
             }]
         }}

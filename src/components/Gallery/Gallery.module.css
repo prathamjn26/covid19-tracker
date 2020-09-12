@@ -1,0 +1,52 @@
+body{
+  background: #ffffff;;
+}
+.gridList{
+transform: translateZ(0);
+  }
+
+  .root{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      overflow: hidden;
+      
+  }
+
+  .page{
+    margin-top: 20px;
+}
+
+.paper{
+  padding:2px 4px;
+  margin:80px 60px 40px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  background:red ;
+}
+
+.paper1{
+  padding:5px 10px;
+  margin:10px 60px 60px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  background-color: #60fcff;
+  background-image: url("../../images/paper.svg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.input{
+  margin-left:10px ; 
+  flex: 1; 
+}
+
+.iconButton{
+  padding: 10;
+}
+
+  

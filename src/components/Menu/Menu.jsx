@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {useStyles} from './Menu'
-import {AppBar,Toolbar,IconButton,Badge,MenuItem,Menu,Typography, Button, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions} from '@material-ui/core';
-import {AccountCircle,Notifications,MoreVert, Photo, Home} from '@material-ui/icons';
+import {AppBar,Toolbar,IconButton,Badge,MenuItem,Menu,Typography, Button, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions,Tooltip} from '@material-ui/core';
+import {AccountCircle,Notifications,MoreVert, Photo, Home, Info} from '@material-ui/icons';
 import virus from '../../images/virus.svg';
 import {Link} from 'react-router-dom';
 
@@ -78,6 +78,15 @@ export default function PrimarySearchAppBar() {
         <p>Subscribe</p>
       </MenuItem>
 
+      <Link className={classes.link} to='/About'>
+      <MenuItem>
+        <IconButton color="inherit">
+            <Info/>
+        </IconButton>
+        <p>About</p>
+      </MenuItem>
+      </Link>
+
     </Menu>
   );
 
@@ -110,7 +119,7 @@ export default function PrimarySearchAppBar() {
       </Dialog>
       
     <div className={classes.grow}>
-      <AppBar position="fixed" style={{backgroundColor:'#000c4d'}}>
+      <AppBar position="fixed" style={{backgroundColor:'#000835'}}>
         <Toolbar>
         <Link to='/Home'>
           <img src={virus} alt='' style={{height:"32px",width:'32px'}}/>
@@ -122,25 +131,32 @@ export default function PrimarySearchAppBar() {
           <div className={classes.sectionDesktop}>
             
           <Link className={classes.link1} to='/Home'>
+            <Tooltip title="Home">
             <IconButton  color="inherit">
                 <Home/>
             </IconButton>
+            </Tooltip>
           </Link>
 
           <Link className={classes.link1} to='/News'>
+          <Tooltip title="News">
             <IconButton color="inherit">
               <Badge badgeContent="news" color="secondary">
                 <Notifications />
               </Badge>
             </IconButton>
+            </Tooltip>
           </Link>
 
           <Link className={classes.link1} to='/Gallery'>
+            <Tooltip title="Gallery">
             <IconButton  color="inherit">
                 <Photo/>
             </IconButton>
+            </Tooltip>
           </Link>
-            
+
+          <Tooltip title="Subscribe"> 
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -151,7 +167,16 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
-          
+            </Tooltip>
+
+          <Link className={classes.link1} to='/About'>
+            <Tooltip title="About">
+            <IconButton  color="inherit">
+                <Info/>
+            </IconButton>
+            </Tooltip>
+          </Link>
+            
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

@@ -1,25 +1,17 @@
 body{
-    background-color:azure;
+  background-color: #ffffff;
+  background-image: url("./images/background.svg");
+  background-attachment: fixed;
+  background-size: cover;
 }
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.image{
-    margin-top: 50px;
-    width: 370px;
-}
-
-@media (max-width:720px)
-{
-    .container{
-        margin:0 10%;
-    }
-    .image{
-        width:100%;
-    }
-}
+::-webkit-scrollbar {
+    width: 7px;
+  }
+     
+::-webkit-scrollbar-thumb {
+    background: #000835; 
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #000835d8; 
+  }

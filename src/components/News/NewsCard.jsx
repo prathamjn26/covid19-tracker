@@ -8,10 +8,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import style  from './News.module.css';
 
-
 export const NewsCard=(props)=> {
   const {author,title,urlToImage,description,source,url}=props;
-
   return (
     <Card className={style.contain}>
       <CardActionArea>

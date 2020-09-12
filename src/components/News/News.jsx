@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {fetchNewsData} from '../../api';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper, Typography } from '@material-ui/core';
 import {NewsCard} from './NewsCard';
 import style from './News.module.css';
 import { Pagination } from '@material-ui/lab';
-import New from '../../images/news.png';
+import Loading from '../Loading/Loading';
 
 const NewsItem=(newsData,i)=>{
     return(
@@ -13,22 +13,26 @@ const NewsItem=(newsData,i)=>{
     </Grid>);
 }
 
-const itemsPerPage=6;
+const itemsPerPage=12;
 
 class News extends Component {
     state={
         news:[],
         pageValue:1,
-        noOfPages:0
+        noOfPages:0,
+        isLoading:false
     }
 
     async componentDidMount()
     {
         const fetchedNews=await fetchNewsData();
-        this.setState({
-            news:fetchedNews.articles,
-            noOfPages:Math.ceil(fetchedNews.articles.length / itemsPerPage)
-        })
+        setTimeout(()=>{
+            this.setState({
+                news:fetchedNews.articles,
+                noOfPages:Math.ceil(fetchedNews.articles.length / itemsPerPage),
+                isLoading:true
+            })
+        },3000)
     }
 
     handleChange=(event,value)=>{
@@ -38,14 +42,19 @@ class News extends Component {
     }
 
     render() {
-        const {news,noOfPages,pageValue}=this.state;
+        const {news,noOfPages,pageValue,isLoading}=this.state;
         
         return (
             <div className={style.container}>
-            <img src={New} alt='News' className={style.image}/>
+            <Paper elevation={3} className={style.paper}>
+                <Typography style={{fontSize:"3vw"}}>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+                </Typography>
+            </Paper>
+            {isLoading?
             <Grid container  spacing={3}>
                 {news.length?news.slice((pageValue-1)*itemsPerPage,pageValue*itemsPerPage).map((item,i)=>NewsItem(item,i)):null}
-            </Grid>
+            </Grid>:<Loading style={{margin:"auto"}}/>}
 
             {news.length?<Pagination 
             count={noOfPages} 
