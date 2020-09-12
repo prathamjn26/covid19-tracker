@@ -7,6 +7,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import style  from './News.module.css';
+import image from '../../images/error-404.png';
+
+const news="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in tortor dolor. Sed viverra convallis lorem, eu iaculis mi rutrum eu. Phasellus gravida porta risus a varius. Vivamus ullamcorper pharetra sem, in tristique velit ornare ut. Nunc efficitur egestas orci eu cursus. In eget neque tellus";
 
 export const NewsCard=(props)=> {
   const {author,title,urlToImage,description,source,url}=props;
@@ -17,16 +20,16 @@ export const NewsCard=(props)=> {
           component="img"
           alt={author}
           height="140"
-          image={urlToImage}
+          image={urlToImage?urlToImage:image}
           title={title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="h2">
+          <Typography gutterBottom variant="h6" component="h2" noWrap>
             {source.name}
           </Typography>
           <div className={style.text}>
           <Typography variant="body2" color="textSecondary" component="p" >
-            {description}
+            {description?description:news}
           </Typography>
           </div>
         </CardContent>

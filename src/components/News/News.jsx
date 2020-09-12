@@ -13,7 +13,7 @@ const NewsItem=(newsData,i)=>{
     </Grid>);
 }
 
-const itemsPerPage=12;
+const itemsPerPage=15;
 
 class News extends Component {
     state={

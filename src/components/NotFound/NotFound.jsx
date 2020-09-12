@@ -6,8 +6,8 @@ class NotFound extends Component {
         return (
             <div style={{textAlign:"center",margin:"50px 2px"}}>
                 <Paper elevation={3} style={{padding:"20px"}}>
-                    <img src={error} alt="" style={{height:"200px",width:"200px"}}/>
-                    <Typography>Please Enter Correct Country Name</Typography>
+                    <img src={error} alt="" style={{height:"100px",width:"100px"}}/>
+                    <Typography>Please Enter</Typography><Typography>Correct Country Name</Typography>
                 </Paper>
             </div>
         );

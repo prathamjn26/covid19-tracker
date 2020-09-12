@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const url='https://covid19.mathdro.id/api';
-const newsurl='http://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4ac1d839a83d473687420da23a5dbb17';
+const newsurl='https://saurav.tech/NewsAPI/top-headlines/category/health/in.json';
 const imageurl='https://api.unsplash.com/search/photos?per_page=45&query=';
 
 export const fetchData =async (country)=>{
@@ -48,6 +48,7 @@ export const fetchCountries =async ()=>{
 export const fetchNewsData =async ()=>{
     try{
        const {data:{articles}}=await axios.get(newsurl);
+       console.log(articles);
        return {articles};
     }catch(err)
     {
